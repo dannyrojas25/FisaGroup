@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class ConferenceScheduler {
-    public static void main(String[] args) {
+    public void run() {
         List<Talk> talks = new ArrayList<>();
         talks.add(new Talk("Writing Fast Tests Against Enterprise Rails", 60));
         talks.add(new Talk("Overdoing it in Python", 45));
@@ -30,7 +30,7 @@ public class ConferenceScheduler {
         scheduleConference(talks);
     }
 
-    public static void scheduleConference(List<Talk> talks) {
+    public static List<Track> scheduleConference(List<Talk> talks) {
         Collections.sort(talks);
         List<Track> tracks = new ArrayList<>();
         Track currentTrack = new Track();
@@ -45,6 +45,7 @@ public class ConferenceScheduler {
 
         tracks.add(currentTrack);
         printConferenceSchedule(tracks);
+        return tracks;
     }
 
     public static void printConferenceSchedule(List<Track> tracks) {

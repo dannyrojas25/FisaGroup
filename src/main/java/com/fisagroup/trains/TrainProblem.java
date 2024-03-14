@@ -1,13 +1,9 @@
 package com.fisagroup.trains;
 
-
-import com.fisagroup.FisaGroupApplication;
-import org.springframework.boot.SpringApplication;
-
 import java.util.*;
 
 public class TrainProblem {
-    private static class Town {
+    public static class Town {
         String name;
         Map<Town, Integer> routes;
 
@@ -31,10 +27,9 @@ public class TrainProblem {
         }
     }
 
-    private static Map<String, Town> towns = new HashMap<>();
+    public static Map<String, Town> towns = new HashMap<>();
 
-    public static void main(String[] args) {
-        SpringApplication.run(FisaGroupApplication.class, args);
+    public void run() {
         initializeGraph();
 
         System.out.println("Output #1: " + calculateDistance(Arrays.asList("A", "B", "C")));
@@ -71,7 +66,7 @@ public class TrainProblem {
         return towns.computeIfAbsent(name, Town::new);
     }
 
-    private static String calculateDistance(List<String> townNames) {
+    public static String calculateDistance(List<String> townNames) {
         List<Town> towns = new ArrayList<>();
         for (String name : townNames) {
             Town town = getTown(name);

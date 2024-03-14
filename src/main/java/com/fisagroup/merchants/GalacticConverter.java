@@ -1,16 +1,17 @@
 package com.fisagroup.merchants;
 
+import java.io.ObjectInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class GalacticConverter {
-    private static final Map<String, Integer> ROMAN_NUMERALS = new HashMap<>();
-    private static final Map<String, Integer> UNIT_VALUES = new HashMap<>();
-    private static final Map<String, Double> CREDITS_PER_UNIT = new HashMap<>();
+    public static final Map<String, Integer> ROMAN_NUMERALS = new HashMap<>();
+    public static final Map<String, Integer> UNIT_VALUES = new HashMap<>();
+    public static final Map<String, Double> CREDITS_PER_UNIT = new HashMap<>();
 
-    public static void main(String[] args) {
+    public void run() {
         initializeConversionMaps();
 
         String[] input = {
@@ -33,7 +34,7 @@ public class GalacticConverter {
         }
     }
 
-    private static void initializeConversionMaps() {
+    public static void initializeConversionMaps() {
         ROMAN_NUMERALS.put("I", 1);
         ROMAN_NUMERALS.put("V", 5);
         ROMAN_NUMERALS.put("X", 10);
@@ -52,7 +53,7 @@ public class GalacticConverter {
         CREDITS_PER_UNIT.put("Iron", 195.5);
     }
 
-    private static void processLine(String line) {
+    public static void processLine(String line) {
         line = line.trim();  // Eliminar espacios al principio y al final
         String[] parts = line.split(" is ");
 
@@ -101,7 +102,7 @@ public class GalacticConverter {
         }
     }
 
-    private static double calculateResult(String[] tokens) {
+    public static double calculateResult(String[] tokens) {
         int result = 0;
         double creditsMultiplier = 1;
 
